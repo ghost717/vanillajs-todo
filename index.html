@@ -6,14 +6,53 @@
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	  <meta name="description" content="">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-    	<script src="/bootstrap/js/bootstrap.min.js"></script>
-
-    	<link href="/css/reset.css" media="all" rel="stylesheet" type="text/css">
-    	<link href="/css/style.css" media="all" rel="stylesheet" type="text/css">
+      <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+ <!-- 
+    	<script src="bootstrap/js/bootstrap.min.js"></script>
+-->
+      <link href="css/reset.css" media="all" rel="stylesheet" type="text/css">
+      <link href="css/style.css" media="all" rel="stylesheet" type="text/css">
 
 	</head>
 	<body>
+		<div id="app" class="flex-center">
+			<div class="wrap">
+				<!-- Add todo panel -->
+				<div class="panel panel-default add-todo-panel">
+				    <div class="panel-heading">
+				        Dodaj nowe zadanie
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+				            <div class="col-sm-10">
+				                <input type="text" class="form-control" id="todo-input" placeholder="Dodaj">
+				            </div>
+				            <div class="col-sm-2">
+				                <button type="submit" class="btn btn-block btn-success" id="add-todo-btn" onclick="TodoView.addTodo()">Dodaj</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				
+				<div id="todo-list-root">
+                        <!-- Lista będzie renderowana tutaj -->
+                </div>
 
+				<!-- Filters panel -->
+				<div class="panel panel-default filters-panel">
+				    <div class="panel-body">
+				        <button type="submit" class="btn btn-primary" id="fall-btn" onclick="TodoView.filterAll()">Wszystkie</button>
+				        <button type="submit" class="btn btn-default" id="fcompleted-btn" onclick="TodoView.filterCom()">Gotowe</button>
+				        <button type="submit" class="btn btn-default" id="fnot-completed-btn" onclick="TodoView.filterNcom()">Niegotowe</button>
+				    </div>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="app/Todo.js"></script>
+	    <script src="app/TodoView.js"></script>
+	    <script src="app/TodoService.js"></script>
+	    <script src="app/TodoRenderer.js"></script>
 	</body>
 </html>

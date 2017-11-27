@@ -1,7 +1,7 @@
 # vanillajs-todo
 
 ## Instalacja i uruchomienie
-#### 21. Start
+#### 1. Start
 http://localhost:8000/
 http://localhost:8000/webpack-dev-server
 

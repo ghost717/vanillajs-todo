@@ -18,7 +18,7 @@ var TodoService = (function(service){
 
 	service.changeState = function(isCompleted, todoId){
 		var todo = _todos.filter(function(todo){
-			return todo.id === todo.id;
+			return todo.id === todoId;
 		})[0];
 
 		todo.isCompleted = isCompleted;

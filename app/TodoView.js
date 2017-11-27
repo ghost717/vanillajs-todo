@@ -35,6 +35,17 @@ var TodoView = (function(view){
 		updateView();
 	}
 
+	view.filterAll = function(){
+		updateView();
+	}
+
+	view.filterCom = function(){
+		filterChecked();
+	}
+	view.filterNcom = function(){
+		filterNotChecked();
+	}
+
 	return view;
 
 })(TodoView || {});
@@ -47,4 +58,30 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 function updateView() {
     TodoRenderer.renderList(TodoService.getTodos());
+}
+
+function filterChecked(){
+	var newTodos = [];
+	var todos = TodoService.getTodos();
+
+	for(var i=0; i<todos.length; i++){
+		if(todos[i].isCompleted == true){
+			newTodos.push(todos[i]);
+		}
+	}
+
+	TodoRenderer.renderList(newTodos);
+}
+
+function filterNotChecked(){
+	var newTodos = [];
+	var todos = TodoService.getTodos();
+
+	for(var i=0; i<todos.length; i++){
+		if(todos[i].isCompleted == false){
+			newTodos.push(todos[i]);
+		}
+	}
+
+	TodoRenderer.renderList(newTodos);
 }
